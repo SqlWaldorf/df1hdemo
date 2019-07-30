@@ -1,0 +1,32 @@
+{
+	"name": "WranglingDataFlow1",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "tripdata",
+					"script": "",
+					"dataset": {
+						"referenceName": "tripdata",
+						"type": "DatasetReference"
+					},
+					"typeProperties": {
+						"readMode": null
+					}
+				}
+			],
+			"sinks": [
+				{
+					"name": "ADLSGen2dest",
+					"dataset": {
+						"referenceName": "ADLSGen2dest",
+						"type": "DatasetReference"
+					},
+					"script": ""
+				}
+			],
+			"script": "section Section1; shared #\"tripdata\" = let AdfDoc = Web.Contents(\"https://njdatalakeg2.dfs.core.windows.net/demofiles/babs/data/201508_trip_data.csv?sv=2018-03-28&sig=******&sp=rwl\"), Csv = Csv.Document(AdfDoc, [Delimiter = \",\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.None]), PromotedHeaders = Table.PromoteHeaders(Csv, [PromoteAllScalars = true]), TrimmedHeaders = Table.TransformColumnNames(PromotedHeaders, (columnName as text) as text => Text.Trim(columnName)) in TrimmedHeaders;shared UserQuery = let\r\n  Source = tripdata,\r\n  #\"Changed column type\" = Table.TransformColumnTypes(Source, {{\"Start Date\", type datetime}}),\r\n  #\"Week of year\" = Table.TransformColumns(#\"Changed column type\", {{\"Start Date\", each Date.WeekOfYear(_), type number}}),\r\n  #\"Changed column type 1\" = Table.TransformColumnTypes(#\"Week of year\", {{\"Duration\", Int64.Type}}),\r\n  #\"Grouped rows\" = Table.Group(#\"Changed column type 1\", {\"Start Date\", \"Start Station\"}, {{\"Count\", each Table.RowCount(_), type number}, {\"Total duration\", each List.Sum([Duration]), type text}}),\r\n  #\"Reordered columns\" = Table.ReorderColumns(#\"Grouped rows\", {\"Start Date\", \"Start Station\", \"Total duration\", \"Count\"}),\r\n  #\"Changed column type 2\" = Table.TransformColumnTypes(#\"Reordered columns\", {{\"Total duration\", Int64.Type}}),\r\n  #\"Inserted division\" = Table.AddColumn(#\"Changed column type 2\", \"Division\", each [Total duration] / [Count], type number),\r\n  #\"Renamed columns\" = Table.RenameColumns(#\"Inserted division\", {{\"Division\", \"Avg duration\"}})\r\nin\r\n  #\"Renamed columns\";"
+		}
+	}
+}
