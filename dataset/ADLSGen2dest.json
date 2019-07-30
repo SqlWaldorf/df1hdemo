@@ -1,5 +1,5 @@
 {
-	"name": "dest",
+	"name": "ADLSGen2dest",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLSGen2",
@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"folderPath": "output",
 				"fileSystem": "demofiles"
 			},
 			"columnDelimiter": ",",
