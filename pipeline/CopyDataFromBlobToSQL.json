@@ -5,6 +5,7 @@
 			{
 				"name": "Copy_8v1",
 				"type": "Copy",
+				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -26,11 +27,6 @@
 					"source": {
 						"type": "BlobSource",
 						"recursive": false
-					},
-					"sink": {
-						"type": "SqlSink",
-						"writeBatchSize": 10000,
-						"preCopyScript": "TRUNCATE TABLE dbo.tweets"
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": true,
@@ -127,7 +123,13 @@
 							"profile_image_url": "profile_image_url"
 						}
 					}
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureBlob1",
+						"type": "DatasetReference"
+					}
+				]
 			},
 			{
 				"name": "CopyTweetToHistory",
@@ -147,6 +149,7 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
+				"userProperties": [],
 				"typeProperties": {
 					"storedProcedureName": "[dbo].[usp_process_new_tweets]"
 				}
@@ -156,7 +159,8 @@
 			"windowStart": {
 				"type": "String"
 			}
-		}
+		},
+		"annotations": []
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
