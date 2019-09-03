@@ -1,0 +1,35 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "TempSplit"
+				},
+				{
+					"name": "Aggregate1"
+				}
+			],
+			"script": "\n\nsource(output(\n\t\tPDT as string,\n\t\t{Max TemperatureF} as double,\n\t\t{Mean TemperatureF} as double,\n\t\t{Min TemperatureF} as double,\n\t\t{Max Dew PointF} as string,\n\t\t{MeanDew PointF} as string,\n\t\t{Min DewpointF} as string,\n\t\t{Max Humidity} as string,\n\t\t{ Mean Humidity} as string,\n\t\t{ Min Humidity} as string,\n\t\t{ Max Sea Level PressureIn} as string,\n\t\t{ Mean Sea Level PressureIn} as string,\n\t\t{ Min Sea Level PressureIn} as string,\n\t\t{ Max VisibilityMiles} as string,\n\t\t{ Mean VisibilityMiles} as string,\n\t\t{ Min VisibilityMiles} as string,\n\t\t{ Max Wind SpeedMPH} as string,\n\t\t{ Mean Wind SpeedMPH} as string,\n\t\t{ Max Gust SpeedMPH} as string,\n\t\tPrecipitationIn as string,\n\t\t{ CloudCover} as string,\n\t\t{ Events} as string,\n\t\t{ WindDirDegrees} as string,\n\t\tZip as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionBy('hash', 1)) ~> source1\nsource1 split({Mean TemperatureF} > 80,\n\tdisjoint: false) ~> TempSplit@(hightemp, lowtemp)\nTempSplit@hightemp aggregate(groupBy(Zip),\n\t{Min TemperatureF} = sum({Max TemperatureF}),\n\t\tnrofObs = count({Mean TemperatureF})) ~> Aggregate1\nAggregate1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'table',\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false) ~> sink1"
+		}
+	}
+}
