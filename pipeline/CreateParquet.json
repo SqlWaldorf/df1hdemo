@@ -42,7 +42,7 @@
 							{
 								"source": {
 									"name": "medallion",
-									"type": "Guid"
+									"type": "String"
 								},
 								"sink": {
 									"name": "medallion",
@@ -52,7 +52,7 @@
 							{
 								"source": {
 									"name": "hack_license",
-									"type": "Guid"
+									"type": "String"
 								},
 								"sink": {
 									"name": "hack_license",
