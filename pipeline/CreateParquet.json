@@ -35,7 +35,153 @@
 							"type": "AzureBlobStorageWriteSettings"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "medallion",
+									"type": "Guid"
+								},
+								"sink": {
+									"name": "medallion",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "hack_license",
+									"type": "Guid"
+								},
+								"sink": {
+									"name": "hack_license",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "vendor_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "vendor_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "rate_code",
+									"type": "Int16"
+								},
+								"sink": {
+									"name": "rate_code",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "store_and_fwd_flag",
+									"type": "String"
+								},
+								"sink": {
+									"name": "store_and_fwd_flag",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "pickup_datetime",
+									"type": "DateTime",
+									"culture": ""
+								},
+								"sink": {
+									"name": "pickup_datetime",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "dropoff_datetime",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "dropoff_datetime",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "passenger_count",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "passenger_count",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "trip_time_in_secs",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "trip_time_in_secs",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "trip_distance",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "trip_distance",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "pickup_longitude",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "pickup_longitude",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "pickup_latitude",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "pickup_latitude",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "dropoff_longitude",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "dropoff_longitude",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "dropoff_latitude",
+									"type": "Double"
+								},
+								"sink": {
+									"name": "dropoff_latitude",
+									"type": "String"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
