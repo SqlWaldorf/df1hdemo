@@ -1,0 +1,54 @@
+{
+	"name": "CreateORC",
+	"properties": {
+		"description": "Converts the NY TaxiData set (35 GB csv) to parquet files",
+		"activities": [
+			{
+				"name": "Copy Taxi To ORC",
+				"description": "Encodes the monthly taxi datasets into ORC files",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": false,
+							"wildcardFileName": "*.csv",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BlobSink"
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": false
+				},
+				"inputs": [
+					{
+						"referenceName": "TaxiData_csv_njlabfiles",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Taxi_ORC",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
