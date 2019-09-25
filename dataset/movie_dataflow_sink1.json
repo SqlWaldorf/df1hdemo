@@ -1,0 +1,23 @@
+{
+	"name": "movie_dataflow_sink1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blob_njlabfiles",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "sampledata/sampledata/output",
+				"container": "adfsampledata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
