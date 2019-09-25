@@ -1,0 +1,24 @@
+{
+	"name": "movie_dataflow_source1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blob_njlabfiles",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "movies.csv",
+				"folderPath": "sampledata/sampledata",
+				"container": "adfsampledata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
