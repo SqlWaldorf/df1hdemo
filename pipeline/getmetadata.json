@@ -16,10 +16,14 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Taxi_ORC",
+						"referenceName": "TaxiData_Parquet",
 						"type": "DatasetReference"
 					},
-					"fieldList": []
+					"fieldList": [],
+					"storeSettings": {
+						"type": "AzureBlobStorageReadSettings",
+						"recursive": true
+					}
 				}
 			},
 			{
