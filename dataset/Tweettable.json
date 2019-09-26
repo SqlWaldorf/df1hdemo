@@ -1,0 +1,381 @@
+{
+	"name": "Tweettable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "njsqldb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "user_id",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "status_id",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "created_at",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "screen_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "text",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source",
+				"type": "nvarchar"
+			},
+			{
+				"name": "display_text_width",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "reply_to_status_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "reply_to_user_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "reply_to_screen_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "is_quote",
+				"type": "bit"
+			},
+			{
+				"name": "is_retweet",
+				"type": "bit"
+			},
+			{
+				"name": "favorite_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "retweet_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "hashtags",
+				"type": "nvarchar"
+			},
+			{
+				"name": "symbols",
+				"type": "nvarchar"
+			},
+			{
+				"name": "urls_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "urls_t_co",
+				"type": "nvarchar"
+			},
+			{
+				"name": "urls_expanded_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "media_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "media_t_co",
+				"type": "nvarchar"
+			},
+			{
+				"name": "media_expanded_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "media_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ext_media_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ext_media_t_co",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ext_media_expanded_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ext_media_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "mentions_user_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "mentions_screen_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "lang",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_status_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_text",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_created_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_source",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_favorite_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_retweet_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_user_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_screen_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_followers_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_friends_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_statuses_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_location",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "quoted_verified",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_status_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_text",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_created_at",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_source",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_favorite_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_retweet_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_user_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_screen_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_followers_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_friends_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_statuses_count",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_location",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "retweet_verified",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place_full_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "place_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "country_code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "geo_coords",
+				"type": "nvarchar"
+			},
+			{
+				"name": "coords_coords",
+				"type": "nvarchar"
+			},
+			{
+				"name": "bbox_coords",
+				"type": "nvarchar"
+			},
+			{
+				"name": "status_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "location",
+				"type": "nvarchar"
+			},
+			{
+				"name": "description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "protected",
+				"type": "nvarchar"
+			},
+			{
+				"name": "followers_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "friends_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "listed_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "statuses_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "favourites_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "account_created_at",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "verified",
+				"type": "bit"
+			},
+			{
+				"name": "profile_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "profile_expanded_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "account_lang",
+				"type": "nvarchar"
+			},
+			{
+				"name": "profile_banner_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "profile_background_url",
+				"type": "nvarchar"
+			},
+			{
+				"name": "profile_image_url",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tweets"
+		}
+	}
+}
