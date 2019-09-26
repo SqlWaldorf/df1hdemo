@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy Data1",
+				"name": "Copy tweets",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -935,11 +935,11 @@
 				]
 			},
 			{
-				"name": "Stored Procedure1",
+				"name": "remove duplicates",
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Copy Data1",
+						"activity": "Copy tweets",
 						"dependencyConditions": [
 							"Succeeded"
 						]
