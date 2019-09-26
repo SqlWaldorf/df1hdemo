@@ -923,7 +923,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "tweetfolder_blob",
+						"referenceName": "sometweets",
 						"type": "DatasetReference"
 					}
 				],
