@@ -19,7 +19,7 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
-							"recursive": false,
+							"recursive": true,
 							"wildcardFileName": "*.csv",
 							"enablePartitionDiscovery": false
 						},
@@ -923,7 +923,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "sometweets",
+						"referenceName": "tweetfolder_blob",
 						"type": "DatasetReference"
 					}
 				],
