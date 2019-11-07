@@ -1,0 +1,23 @@
+{
+	"name": "WranglingDataFlow1",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "stationdata",
+					"script": "",
+					"dataset": {
+						"referenceName": "stationdata",
+						"type": "DatasetReference"
+					},
+					"typeProperties": {
+						"readMode": null
+					}
+				}
+			],
+			"sinks": [],
+			"script": "section Section1; shared #\"stationdata\" = let AdfDoc = Web.Contents(\"https://njlabfiles.blob.core.windows.net/babs/data/201508_station_data.csv?sv=2018-03-28&sig=HmRiw1r1Whl4zE9iqoZh5zj%2BNoNsYdIM%2BPOSumCOrv4%3D&spr=https&se=2019-11-08T12%3A08%3A33Z&srt=sco&ss=bf&sp=rwl\"),Csv = Csv.Document(AdfDoc, [Delimiter = \",\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv]) in Csv;\r\nshared UserQuery = let\r\n  Source = stationdata,\r\n  #\"Promoted headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars = true])\r\nin\r\n  #\"Promoted headers\";"
+		}
+	}
+}
