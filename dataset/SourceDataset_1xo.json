@@ -1,0 +1,23 @@
+{
+	"name": "SourceDataset_1xo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "WASB_labfiles",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "2019/12/05",
+				"container": "tweets"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
