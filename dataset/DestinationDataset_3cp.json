@@ -1,0 +1,545 @@
+{
+	"name": "DestinationDataset_3cp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ASD_west",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "user_id",
+				"type": "bigint",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "status_id",
+				"type": "bigint",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "created_at",
+				"type": "datetime2",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "screen_name",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "text",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "source",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "account_lang",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "profile_banner_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "profile_background_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "profile_image_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "statuses_count",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "favourites_count",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "account_created_at",
+				"type": "datetime2",
+				"precision": 19,
+				"scale": 0
+			},
+			{
+				"name": "verified",
+				"type": "bit",
+				"precision": 1,
+				"scale": 0
+			},
+			{
+				"name": "profile_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "profile_expanded_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "description",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "protected",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "followers_count",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "friends_count",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "listed_count",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "geo_coords",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "coords_coords",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "bbox_coords",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "status_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "name",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "location",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "place_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "place_name",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "place_full_name",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "place_type",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "country",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "country_code",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_followers_count",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_friends_count",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_statuses_count",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_location",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_description",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_verified",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_source",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_favorite_count",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_retweet_count",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_user_id",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_screen_name",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_name",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_location",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_description",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_verified",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_status_id",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_text",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "retweet_created_at",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_user_id",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_screen_name",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_name",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_followers_count",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_friends_count",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_statuses_count",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_status_id",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_text",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_created_at",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_source",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_favorite_count",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "quoted_retweet_count",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "ext_media_t_co",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "ext_media_expanded_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "ext_media_type",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "mentions_user_id",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "mentions_screen_name",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "lang",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "urls_expanded_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "media_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "media_t_co",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "media_expanded_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "media_type",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "ext_media_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "favorite_count",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "retweet_count",
+				"type": "int",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "hashtags",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "symbols",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "urls_url",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "urls_t_co",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "display_text_width",
+				"type": "smallint",
+				"precision": 5,
+				"scale": 0
+			},
+			{
+				"name": "reply_to_status_id",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "reply_to_user_id",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "reply_to_screen_name",
+				"type": "nvarchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "is_quote",
+				"type": "bit",
+				"precision": 1,
+				"scale": 0
+			},
+			{
+				"name": "is_retweet",
+				"type": "bit",
+				"precision": 1,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tweets"
+		}
+	}
+}
