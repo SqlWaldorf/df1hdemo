@@ -1,0 +1,13 @@
+{
+	"name": "WASB_labfiles",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "babs, taxi and other data sets",
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=njlabfiles;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIjFIREVNT18zY2NiNzdkNC01ZjA3LTQxNDQtOGIzYS03MDgyMDRkM2JjMDgiDQp9"
+		}
+	}
+}
