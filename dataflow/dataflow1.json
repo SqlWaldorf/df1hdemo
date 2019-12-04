@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "tripdata",
+						"referenceName": "dataflow_station",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -14,7 +14,7 @@
 			],
 			"sinks": [],
 			"transformations": [],
-			"script": "\n\nsource(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string,\n\t\tColumn_8 as string,\n\t\tColumn_9 as string,\n\t\tColumn_10 as string,\n\t\tColumn_11 as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false,\n\tlimit: 100) ~> source1"
+			"script": "\n\nsource(output(\n\t\tstation_id as string,\n\t\tname as string,\n\t\tlat as string,\n\t\tlong as string,\n\t\tdockcount as string,\n\t\tlandmark as string,\n\t\tinstallation as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> source1"
 		}
 	}
 }
