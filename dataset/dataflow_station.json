@@ -1,0 +1,53 @@
+{
+	"name": "dataflow_station",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLSGen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "201508_station_data.csv",
+				"folderPath": "babs/data",
+				"fileSystem": "demofiles"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "station_id",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "lat",
+				"type": "String"
+			},
+			{
+				"name": "long",
+				"type": "String"
+			},
+			{
+				"name": "dockcount",
+				"type": "String"
+			},
+			{
+				"name": "landmark",
+				"type": "String"
+			},
+			{
+				"name": "installation",
+				"type": "String"
+			}
+		]
+	}
+}
