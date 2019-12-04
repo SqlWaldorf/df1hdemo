@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "dataflow_demo",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -9,12 +9,12 @@
 						"referenceName": "dataflow_station",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "stationdatat"
 				}
 			],
 			"sinks": [],
 			"transformations": [],
-			"script": "\n\nsource(output(\n\t\tstation_id as string,\n\t\tname as string,\n\t\tlat as string,\n\t\tlong as string,\n\t\tdockcount as string,\n\t\tlandmark as string,\n\t\tinstallation as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> source1"
+			"script": "\n\nsource(output(\n\t\tstation_id as string,\n\t\tname as string,\n\t\tlat as string,\n\t\tlong as string,\n\t\tdockcount as string,\n\t\tlandmark as string,\n\t\tinstallation as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> stationdatat"
 		}
 	}
 }
