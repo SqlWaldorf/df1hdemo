@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_1xo",
+				"name": "Copy to staging",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -193,7 +193,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Copy_1xo",
+						"activity": "Copy to staging",
 						"dependencyConditions": [
 							"Succeeded"
 						]
