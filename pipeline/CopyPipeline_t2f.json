@@ -1,0 +1,186 @@
+{
+	"name": "CopyPipeline_t2f",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_t2f",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "tweets/2019/12/05/"
+					},
+					{
+						"name": "Destination",
+						"value": "stg.tweets"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "truncate table stg.tweets"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "user_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "user_id",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "status_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "status_id",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "created_at",
+									"type": "String"
+								},
+								"sink": {
+									"name": "created_at",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"name": "screen_name",
+									"type": "String"
+								},
+								"sink": {
+									"name": "screen_name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "text",
+									"type": "String"
+								},
+								"sink": {
+									"name": "text",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "source",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "display_text_width",
+									"type": "String"
+								},
+								"sink": {
+									"name": "display_text_width",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"name": "is_quote",
+									"type": "String"
+								},
+								"sink": {
+									"name": "is_quote",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "is_retweet",
+									"type": "String"
+								},
+								"sink": {
+									"name": "is_retweet",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"name": "favorite_count",
+									"type": "String"
+								},
+								"sink": {
+									"name": "favorite_count",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "retweet_count",
+									"type": "String"
+								},
+								"sink": {
+									"name": "retweet_count",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"name": "lang",
+									"type": "String"
+								},
+								"sink": {
+									"name": "lang",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_t2f",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_t2f",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
