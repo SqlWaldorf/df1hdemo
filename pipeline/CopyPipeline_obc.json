@@ -180,6 +180,150 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "Office365Source",
+						"allowedGroups": [
+							"2234df73-a3ba-4538-9d3a-79ae0eb25e86"
+						],
+						"outputColumns": [
+							{
+								"name": "assistantName"
+							},
+							{
+								"name": "birthday"
+							},
+							{
+								"name": "businessAddress"
+							},
+							{
+								"name": "businessHomePage"
+							},
+							{
+								"name": "businessPhones"
+							},
+							{
+								"name": "categories"
+							},
+							{
+								"name": "changeKey"
+							},
+							{
+								"name": "children"
+							},
+							{
+								"name": "companyName"
+							},
+							{
+								"name": "createdDateTime"
+							},
+							{
+								"name": "department"
+							},
+							{
+								"name": "displayName"
+							},
+							{
+								"name": "emailAddresses"
+							},
+							{
+								"name": "fileAs"
+							},
+							{
+								"name": "generation"
+							},
+							{
+								"name": "givenName"
+							},
+							{
+								"name": "homeAddress"
+							},
+							{
+								"name": "homePhones"
+							},
+							{
+								"name": "id"
+							},
+							{
+								"name": "imAddresses"
+							},
+							{
+								"name": "initials"
+							},
+							{
+								"name": "jobTitle"
+							},
+							{
+								"name": "lastModifiedDateTime"
+							},
+							{
+								"name": "manager"
+							},
+							{
+								"name": "middleName"
+							},
+							{
+								"name": "mobilePhone"
+							},
+							{
+								"name": "nickName"
+							},
+							{
+								"name": "officeLocation"
+							},
+							{
+								"name": "otherAddress"
+							},
+							{
+								"name": "parentFolderId"
+							},
+							{
+								"name": "personalNotes"
+							},
+							{
+								"name": "profession"
+							},
+							{
+								"name": "spouseName"
+							},
+							{
+								"name": "surname"
+							},
+							{
+								"name": "title"
+							},
+							{
+								"name": "yomiCompanyName"
+							},
+							{
+								"name": "yomiGivenName"
+							},
+							{
+								"name": "yomiSurname"
+							}
+						]
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "Office365Table1",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []
