@@ -13,7 +13,8 @@
 				}
 			],
 			"sinks": [],
-			"script": "\n\nsource(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string,\n\t\tColumn_8 as string,\n\t\tColumn_9 as string,\n\t\tColumn_10 as string,\n\t\tColumn_11 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> source1"
+			"transformations": [],
+			"script": "source(output(\n\t\t{Trip ID} as string,\n\t\tDuration as string,\n\t\t{Start Date} as string,\n\t\t{Start Station} as string,\n\t\t{Start Terminal} as string,\n\t\t{End Date} as string,\n\t\t{End Station} as string,\n\t\t{End Terminal} as string,\n\t\t{Bike #} as string,\n\t\t{Subscriber Type} as string,\n\t\t{Zip Code} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> source1"
 		}
 	}
 }
