@@ -4,6 +4,7 @@
 		"activities": [
 			{
 				"name": "WranglingDataFlow2",
+				"description": "hello world",
 				"type": "ExecuteWranglingDataflow",
 				"dependsOn": [],
 				"policy": {
