@@ -1,0 +1,32 @@
+{
+	"name": "WranglingDataFlow2",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "babs",
+					"script": "",
+					"dataset": {
+						"referenceName": "babs",
+						"type": "DatasetReference"
+					},
+					"typeProperties": {
+						"readMode": null
+					}
+				}
+			],
+			"sinks": [
+				{
+					"name": "Sink1",
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"script": "sink(input(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Sink1"
+				}
+			],
+			"script": "section Section1;\r\nshared babs = let\r\n  AdfDoc = AzureStorage.BlobContents(\"https://njlabfiles.blob.core.windows.net/babs/data/201508_trip_data.csv\"),\r\n  Csv = Csv.Document(AdfDoc, [Delimiter = \",\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv]),\r\n  PromotedHeaders = Table.PromoteHeaders(Csv, [PromoteAllScalars = true])\r\nin\r\n  PromotedHeaders;\r\nshared UserQuery = let\r\n  Source = babs\r\nin\r\n  Source;\r\n"
+		}
+	}
+}

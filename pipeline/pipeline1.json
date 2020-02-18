@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "WranglingDataFlow1",
+				"name": "WranglingDataFlow2",
 				"type": "ExecuteWranglingDataflow",
 				"dependsOn": [],
 				"policy": {
@@ -16,12 +16,8 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "WranglingDataFlow1",
+						"referenceName": "WranglingDataFlow2",
 						"type": "DataFlowReference"
-					},
-					"compute": {
-						"computeType": "General",
-						"coreCount": 8
 					}
 				}
 			}
