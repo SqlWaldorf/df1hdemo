@@ -1,0 +1,17 @@
+{
+	"name": "tweets",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets",
+			"userId": "Nico@u2u.be",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyMjExMzc1Ni04Yjc2LTQzMTMtYTZkMi00NDljOWE0ZGI0NDAiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SAMIRb",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
