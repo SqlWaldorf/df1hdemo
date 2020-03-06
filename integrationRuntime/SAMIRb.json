@@ -1,0 +1,7 @@
+{
+	"name": "SAMIRb",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "demo IR"
+	}
+}
