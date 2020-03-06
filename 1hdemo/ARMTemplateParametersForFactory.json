@@ -5,9 +5,6 @@
 		"factoryName": {
 			"value": "1hdemo"
 		},
-		"ADLSGen2_accountKey": {
-			"value": ""
-		},
 		"ASD_west_connectionString": {
 			"value": ""
 		},
@@ -16,9 +13,6 @@
 		},
 		"WASB_labfiles_connectionString": {
 			"value": ""
-		},
-		"ADLSGen2_properties_typeProperties_url": {
-			"value": "https://njdatalakeg2.dfs.core.windows.net"
 		}
 	}
 }
