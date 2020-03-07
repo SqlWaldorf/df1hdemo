@@ -1,0 +1,29 @@
+{
+	"name": "babsWranglingDataFlow",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "babs",
+					"script": "",
+					"dataset": {
+						"referenceName": "babs",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"sinks": [
+				{
+					"name": "Sink1",
+					"dataset": {
+						"referenceName": "DelimitedText2",
+						"type": "DatasetReference"
+					},
+					"script": "sink(input(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Sink1"
+				}
+			],
+			"script": "section Section1;\r\nshared babs = let\r\n  AdfDoc = AzureStorage.DataLakeContents(\"https://njdatalakeg2.dfs.core.windows.net/demofiles/babs/data/201508_station_data.csv\"),\r\n  Csv = Csv.Document(AdfDoc, [Delimiter = \",\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv]),\r\n  PromotedHeaders = Table.PromoteHeaders(Csv, [PromoteAllScalars = true])\r\nin\r\n  PromotedHeaders;\r\nshared UserQuery = let\r\n  Source = babs,\r\n  #\"Changed column type\" = Table.TransformColumnTypes(Source, {{\"dockcount\", Int64.Type}}),\r\n  #\"Removed other columns\" = Table.SelectColumns(#\"Changed column type\", {\"name\", \"station_id\", \"dockcount\", \"landmark\"}),\r\n  #\"Uppercased text\" = Table.TransformColumns(#\"Removed other columns\", {{\"name\", each Text.Upper(_), type text}}),\r\n  #\"Filtered rows\" = Table.SelectRows(#\"Uppercased text\", each [dockcount] >= 20)\r\nin\r\n  #\"Filtered rows\";\r\n"
+		}
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "babsWeather",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "Select1"
+				}
+			],
+			"script": "source(output(\n\t\tPDT as date 'MM/dd/yyyy',\n\t\t{Max TemperatureF} as short,\n\t\t{Mean TemperatureF} as short,\n\t\t{Min TemperatureF} as short,\n\t\t{Max Dew PointF} as short,\n\t\t{MeanDew PointF} as short,\n\t\t{Min DewpointF} as short,\n\t\t{Max Humidity} as short,\n\t\t{ Mean Humidity} as short,\n\t\t{ Min Humidity} as short,\n\t\t{ Max Sea Level PressureIn} as double,\n\t\t{ Mean Sea Level PressureIn} as double,\n\t\t{ Min Sea Level PressureIn} as double,\n\t\t{ Max VisibilityMiles} as short,\n\t\t{ Mean VisibilityMiles} as short,\n\t\t{ Min VisibilityMiles} as short,\n\t\t{ Max Wind SpeedMPH} as short,\n\t\t{ Mean Wind SpeedMPH} as short,\n\t\t{ Max Gust SpeedMPH} as short,\n\t\tPrecipitationIn as string,\n\t\t{ CloudCover} as short,\n\t\t{ Events} as string,\n\t\t{ WindDirDegrees} as short,\n\t\tZip as integer\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionBy('roundRobin', 2)) ~> source1\nsource1 select(mapColumn(\n\t\tPDT,\n\t\t{Max TemperatureF},\n\t\t{Mean TemperatureF},\n\t\t{Min TemperatureF},\n\t\t{Max Dew PointF},\n\t\t{MeanDew PointF},\n\t\t{Min DewpointF},\n\t\t{Max Humidity},\n\t\t{ Mean Humidity},\n\t\t{ Min Humidity},\n\t\t{ Max Sea Level PressureIn},\n\t\t{ Mean Sea Level PressureIn},\n\t\t{ Min Sea Level PressureIn},\n\t\t{ Max VisibilityMiles},\n\t\t{ Mean VisibilityMiles},\n\t\t{ Min VisibilityMiles},\n\t\t{ Max Wind SpeedMPH},\n\t\t{ Mean Wind SpeedMPH},\n\t\t{ Max Gust SpeedMPH},\n\t\tPrecipitationIn,\n\t\t{ CloudCover},\n\t\t{ Events},\n\t\t{ WindDirDegrees},\n\t\tZip\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select1"
+		}
+	}
+}
