@@ -1,0 +1,18 @@
+{
+	"name": "DestinationDataset_8tb",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeTweetStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "RAW",
+				"fileSystem": "demojan2020"
+			}
+		}
+	}
+}
