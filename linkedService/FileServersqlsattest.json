@@ -1,0 +1,23 @@
+{
+	"name": "FileServersqlsattest",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets",
+			"userId": "Nico@u2u.be",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "nicokey"
+			}
+		},
+		"connectVia": {
+			"referenceName": "SAMIRb",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
