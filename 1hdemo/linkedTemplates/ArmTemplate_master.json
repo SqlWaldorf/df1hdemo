@@ -15,9 +15,57 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
 		},
+		"AzureDataLakeTweetStorage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeTweetStorage'"
+		},
 		"WASB_labfiles_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'WASB_labfiles'"
+		},
+		"tweets_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'tweets'"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDataLakeTweetStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://njdatalakeg2.dfs.core.windows.net"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://njdemokeys.vault.azure.net/"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "Nico@u2u.be"
+		},
+		"FileServersqlsattest_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets"
+		},
+		"FileServersqlsattest_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "Nico@u2u.be"
+		},
+		"tweets_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets"
+		},
+		"tweets_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "Nico@u2u.be"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://njdatalakeg2.dfs.core.windows.net"
 		},
 		"containerUri": {
 			"type": "string",
@@ -52,12 +100,68 @@
 					"AzureBlobStorage1_connectionString": {
 						"value": "[parameters('AzureBlobStorage1_connectionString')]"
 					},
+					"AzureDataLakeTweetStorage_accountKey": {
+						"value": "[parameters('AzureDataLakeTweetStorage_accountKey')]"
+					},
 					"WASB_labfiles_connectionString": {
 						"value": "[parameters('WASB_labfiles_connectionString')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"tweets_password": {
+						"value": "[parameters('tweets_password')]"
+					},
+					"AzureDataLakeTweetStorage_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeTweetStorage_properties_typeProperties_url')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"FileServer1_properties_typeProperties_host": {
+						"value": "[parameters('FileServer1_properties_typeProperties_host')]"
+					},
+					"FileServer1_properties_typeProperties_userId": {
+						"value": "[parameters('FileServer1_properties_typeProperties_userId')]"
+					},
+					"FileServersqlsattest_properties_typeProperties_host": {
+						"value": "[parameters('FileServersqlsattest_properties_typeProperties_host')]"
+					},
+					"FileServersqlsattest_properties_typeProperties_userId": {
+						"value": "[parameters('FileServersqlsattest_properties_typeProperties_userId')]"
+					},
+					"tweets_properties_typeProperties_host": {
+						"value": "[parameters('tweets_properties_typeProperties_host')]"
+					},
+					"tweets_properties_typeProperties_userId": {
+						"value": "[parameters('tweets_properties_typeProperties_userId')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_0')]"
+			]
 		}
 	]
 }

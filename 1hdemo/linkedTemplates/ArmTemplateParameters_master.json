@@ -11,8 +11,44 @@
 		"AzureBlobStorage1_connectionString": {
 			"value": ""
 		},
+		"AzureDataLakeTweetStorage_accountKey": {
+			"value": ""
+		},
 		"WASB_labfiles_connectionString": {
 			"value": ""
+		},
+		"tweets_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeTweetStorage_properties_typeProperties_url": {
+			"value": "https://njdatalakeg2.dfs.core.windows.net"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://njdemokeys.vault.azure.net/"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"value": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "Nico@u2u.be"
+		},
+		"FileServersqlsattest_properties_typeProperties_host": {
+			"value": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets"
+		},
+		"FileServersqlsattest_properties_typeProperties_userId": {
+			"value": "Nico@u2u.be"
+		},
+		"tweets_properties_typeProperties_host": {
+			"value": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets"
+		},
+		"tweets_properties_typeProperties_userId": {
+			"value": "Nico@u2u.be"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://njdatalakeg2.dfs.core.windows.net"
 		},
 		"containerUri": {
 			"value": ""

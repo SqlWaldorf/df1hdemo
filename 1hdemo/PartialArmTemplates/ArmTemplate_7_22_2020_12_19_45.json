@@ -6,303 +6,12 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "1hdemo"
-		},
-		"ASD_west_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'ASD_west'"
-		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
-		"AzureDataLakeTweetStorage_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeTweetStorage'"
-		},
-		"WASB_labfiles_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'WASB_labfiles'"
-		},
-		"tweets_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'tweets'"
-		},
-		"AzureDataLakeStorage1_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
-		},
-		"AzureDataLakeTweetStorage_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://njdatalakeg2.dfs.core.windows.net"
-		},
-		"AzureKeyVault1_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://njdemokeys.vault.azure.net/"
-		},
-		"FileServer1_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets"
-		},
-		"FileServer1_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "Nico@u2u.be"
-		},
-		"FileServersqlsattest_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets"
-		},
-		"FileServersqlsattest_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "Nico@u2u.be"
-		},
-		"tweets_properties_typeProperties_host": {
-			"type": "string",
-			"defaultValue": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets"
-		},
-		"tweets_properties_typeProperties_userId": {
-			"type": "string",
-			"defaultValue": "Nico@u2u.be"
-		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://njdatalakeg2.dfs.core.windows.net"
 		}
 	},
 	"variables": {
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
-		{
-			"name": "[concat(parameters('factoryName'), '/tweetcopy')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy_1xo",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [
-							{
-								"name": "Source",
-								"value": "tweets/2019/12/05/"
-							},
-							{
-								"name": "Destination",
-								"value": "stg.tweets"
-							}
-						],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"wildcardFileName": "*"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings",
-									"skipLineCount": 0
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "truncate table stg.tweets"
-							},
-							"enableStaging": false,
-							"enableSkipIncompatibleRow": true,
-							"redirectIncompatibleRowSettings": {
-								"linkedServiceName": {
-									"referenceName": "WASB_labfiles",
-									"type": "LinkedServiceReference"
-								},
-								"path": "tweets/errors"
-							},
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "user_id",
-											"type": "String"
-										},
-										"sink": {
-											"name": "user_id",
-											"type": "Int64"
-										}
-									},
-									{
-										"source": {
-											"name": "status_id",
-											"type": "String"
-										},
-										"sink": {
-											"name": "status_id",
-											"type": "Int64"
-										}
-									},
-									{
-										"source": {
-											"name": "created_at",
-											"type": "String"
-										},
-										"sink": {
-											"name": "created_at",
-											"type": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "screen_name",
-											"type": "String"
-										},
-										"sink": {
-											"name": "screen_name",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "text",
-											"type": "String"
-										},
-										"sink": {
-											"name": "text",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "source",
-											"type": "String"
-										},
-										"sink": {
-											"name": "source",
-											"type": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "display_text_width",
-											"type": "String"
-										},
-										"sink": {
-											"name": "display_text_width",
-											"type": "Int16"
-										}
-									},
-									{
-										"source": {
-											"name": "is_quote",
-											"type": "String"
-										},
-										"sink": {
-											"name": "is_quote",
-											"type": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"name": "is_retweet",
-											"type": "String"
-										},
-										"sink": {
-											"name": "is_retweet",
-											"type": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"name": "favorite_count",
-											"type": "String"
-										},
-										"sink": {
-											"name": "favorite_count",
-											"type": "Int32"
-										}
-									},
-									{
-										"source": {
-											"name": "retweet_count",
-											"type": "String"
-										},
-										"sink": {
-											"name": "retweet_count",
-											"type": "Int32"
-										}
-									},
-									{
-										"source": {
-											"name": "lang",
-											"type": "String"
-										},
-										"sink": {
-											"name": "lang",
-											"type": "String"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "SourceDataset_1xo",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DestinationDataset_1xo",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					},
-					{
-						"name": "merge with historical tweets",
-						"type": "SqlServerStoredProcedure",
-						"dependsOn": [
-							{
-								"activity": "Copy_1xo",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"storedProcedureName": "[[dbo].[usp_process_new_tweets]"
-						},
-						"linkedServiceName": {
-							"referenceName": "ASD_west",
-							"type": "LinkedServiceReference"
-						}
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_1xo')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_1xo')]",
-				"[concat(variables('factoryId'), '/linkedServices/ASD_west')]",
-				"[concat(variables('factoryId'), '/linkedServices/WASB_labfiles')]"
-			]
-		},
 		{
 			"name": "[concat(parameters('factoryName'), '/DelimitedText1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
@@ -718,100 +427,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DestinationDataset_1xo')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ASD_west",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [
-					{
-						"name": "user_id",
-						"type": "bigint",
-						"precision": 19,
-						"scale": 0
-					},
-					{
-						"name": "status_id",
-						"type": "bigint",
-						"precision": 19,
-						"scale": 0
-					},
-					{
-						"name": "created_at",
-						"type": "datetime2",
-						"precision": 19,
-						"scale": 0
-					},
-					{
-						"name": "screen_name",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "text",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "source",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					},
-					{
-						"name": "display_text_width",
-						"type": "smallint",
-						"precision": 5,
-						"scale": 0
-					},
-					{
-						"name": "is_quote",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "is_retweet",
-						"type": "bit",
-						"precision": 1,
-						"scale": 0
-					},
-					{
-						"name": "favorite_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "retweet_count",
-						"type": "int",
-						"precision": 10,
-						"scale": 0
-					},
-					{
-						"name": "lang",
-						"type": "nvarchar",
-						"precision": 0,
-						"scale": 0
-					}
-				],
-				"typeProperties": {
-					"schema": "stg",
-					"table": "tweets"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ASD_west')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/DestinationDataset_8tb')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -857,34 +472,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeTweetStorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_1xo')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "WASB_labfiles",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"folderPath": "2019/12/05",
-						"container": "tweets"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/WASB_labfiles')]"
 			]
 		},
 		{
@@ -1097,32 +684,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ASD_west')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('ASD_west_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/AzureDataLakeTweetStorage')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -1130,10 +691,10 @@
 				"annotations": [],
 				"type": "AzureBlobFS",
 				"typeProperties": {
-					"url": "[parameters('AzureDataLakeTweetStorage_properties_typeProperties_url')]",
+					"url": "https://njdatalakeg2.dfs.core.windows.net",
 					"accountKey": {
 						"type": "SecureString",
-						"value": "[parameters('AzureDataLakeTweetStorage_accountKey')]"
+						"value": "**********"
 					}
 				}
 			},
@@ -1147,7 +708,7 @@
 				"annotations": [],
 				"type": "AzureKeyVault",
 				"typeProperties": {
-					"baseUrl": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					"baseUrl": "https://njdemokeys.vault.azure.net/"
 				}
 			},
 			"dependsOn": []
@@ -1160,8 +721,8 @@
 				"annotations": [],
 				"type": "FileServer",
 				"typeProperties": {
-					"host": "[parameters('FileServer1_properties_typeProperties_host')]",
-					"userId": "[parameters('FileServer1_properties_typeProperties_userId')]",
+					"host": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets",
+					"userId": "Nico@u2u.be",
 					"password": {
 						"type": "AzureKeyVaultSecret",
 						"store": {
@@ -1177,7 +738,6 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/SAMIRb')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault1')]"
 			]
 		},
@@ -1189,8 +749,8 @@
 				"annotations": [],
 				"type": "FileServer",
 				"typeProperties": {
-					"host": "[parameters('FileServersqlsattest_properties_typeProperties_host')]",
-					"userId": "[parameters('FileServersqlsattest_properties_typeProperties_userId')]",
+					"host": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets",
+					"userId": "Nico@u2u.be",
 					"password": {
 						"type": "AzureKeyVaultSecret",
 						"store": {
@@ -1206,23 +766,8 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/SAMIRb')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault1')]"
 			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/WASB_labfiles')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "babs, taxi and other data sets",
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('WASB_labfiles_connectionString')]"
-				}
-			},
-			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/tweets')]",
@@ -1232,11 +777,11 @@
 				"annotations": [],
 				"type": "FileServer",
 				"typeProperties": {
-					"host": "[parameters('tweets_properties_typeProperties_host')]",
-					"userId": "[parameters('tweets_properties_typeProperties_userId')]",
+					"host": "C:\\Users\\Nico\\OneDrive - U2U Training\\Talks\\2019\\Azure Bootcamp\\FetchTweets",
+					"userId": "Nico@u2u.be",
 					"password": {
 						"type": "SecureString",
-						"value": "[parameters('tweets_password')]"
+						"value": "**********"
 					}
 				},
 				"connectVia": {
@@ -1244,9 +789,7 @@
 					"type": "IntegrationRuntimeReference"
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/SAMIRb')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Trigger_8tb')]",
@@ -1267,17 +810,6 @@
 					},
 					"dependsOn": []
 				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SAMIRb')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"description": "demo IR",
-				"typeProperties": {}
 			},
 			"dependsOn": []
 		},
@@ -1412,15 +944,13 @@
 						"inputs": [
 							{
 								"referenceName": "babsstatusgz",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "babsstatusParquet",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
@@ -1441,10 +971,10 @@
 				"annotations": [],
 				"type": "AzureBlobFS",
 				"typeProperties": {
-					"url": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]",
+					"url": "https://njdatalakeg2.dfs.core.windows.net",
 					"accountKey": {
 						"type": "SecureString",
-						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+						"value": "**********"
 					}
 				}
 			},
