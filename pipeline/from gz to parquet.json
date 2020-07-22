@@ -41,8 +41,66 @@
 							"type": "AzureBlobFSWriteSettings"
 						}
 					},
-					"enableStaging": false
-				}
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "station_id",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "station_id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "bikes_available",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "bikes_available",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "docks_available",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "docks_available",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "time",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "time",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "babsstatusgz",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "babsstatusParquet",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"concurrency": 1,

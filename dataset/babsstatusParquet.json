@@ -1,0 +1,20 @@
+{
+	"name": "babsstatusParquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "clean/babs/data",
+				"fileSystem": "demofiles"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
