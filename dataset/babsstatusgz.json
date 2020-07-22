@@ -22,7 +22,19 @@
 		},
 		"schema": [
 			{
-				"name": "\u001f�\b\b�C�U\u0004\u0000201508_status_data.csv\u0000|�K��4\u0010\u0006�9�@�A�]U��� ^\u0003�k\u0000b�\u0010»�#�\t:|ew�N�&��������\u001f>�櫏���ۯ���_>��Ͽ��돿���o���?���\u001f̏G}<��\u001f�k�'��k|x]��?�Q���k�:����lQ\u0017uS\u000f��9��%�:��\u001aԤ\u0016uQ7�P_�yQ��<'5�I-�jQ7�P�������d6���E]�M=�\u0015{�\u0017uP'5�I-*�Unf\u000f�<\u0006���A�Ԡ&gU�.f7��2���>8�\u000f�N�\u00065�E]��f�0����:��\u001a�5�W�j\u0014+/�\u001e��u�샽\u000e�\u000659�bv1����u\u0015�ճ\u000f�:�",
+				"name": "station_id",
+				"type": "String"
+			},
+			{
+				"name": "bikes_available",
+				"type": "String"
+			},
+			{
+				"name": "docks_available",
+				"type": "String"
+			},
+			{
+				"name": "time",
 				"type": "String"
 			}
 		]
