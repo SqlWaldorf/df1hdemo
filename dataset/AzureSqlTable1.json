@@ -1,0 +1,31 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ASD_west",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "landmark",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NumberOfStations",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "TotalBikeDocks",
+				"type": "bigint",
+				"precision": 19
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "bikestationlarge"
+		}
+	}
+}
