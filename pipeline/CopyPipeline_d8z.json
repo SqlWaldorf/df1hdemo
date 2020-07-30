@@ -4,6 +4,7 @@
 		"activities": [
 			{
 				"name": "Copy_d8z",
+				"description": "dfssdfdsdf",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
