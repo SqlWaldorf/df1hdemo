@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_spb",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ASD_west",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "sqlbitsdemo"
+		}
+	}
+}
