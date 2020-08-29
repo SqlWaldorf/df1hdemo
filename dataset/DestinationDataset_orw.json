@@ -1,0 +1,21 @@
+{
+	"name": "DestinationDataset_orw",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "WASB_labfiles",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "results",
+				"folderPath": "output",
+				"container": "tweets"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
