@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_1xo",
+				"name": "Copy_tweets",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -184,7 +184,7 @@
 				"type": "SqlServerStoredProcedure",
 				"dependsOn": [
 					{
-						"activity": "Copy_1xo",
+						"activity": "Copy_tweets",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -211,7 +211,7 @@
 				"type": "ExecuteDataFlow",
 				"dependsOn": [
 					{
-						"activity": "Copy_1xo",
+						"activity": "Copy_tweets",
 						"dependencyConditions": [
 							"Succeeded"
 						]
