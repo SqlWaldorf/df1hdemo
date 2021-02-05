@@ -1,0 +1,37 @@
+{
+	"name": "SourceDataset_ffn",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blob_njlabfiles",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Currency_ARS.txt",
+				"folderPath": "sampledata/sampledata",
+				"container": "adfsampledata"
+			},
+			"columnDelimiter": "\t",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}
