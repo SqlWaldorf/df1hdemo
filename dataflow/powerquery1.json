@@ -1,0 +1,20 @@
+{
+	"name": "powerquery1",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "babs",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~>  babs",
+					"dataset": {
+						"referenceName": "babs",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared babs = let AdfDoc = AzureStorage.DataLakeContents(\"https://njdatalakeg2.dfs.core.windows.net/demofiles/babs/data/201508_station_data.csv\"),Csv = Csv.Document(AdfDoc, [Delimiter = \",\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv]), PromotedHeaders = Table.PromoteHeaders(Csv, [PromoteAllScalars = true]) in  PromotedHeaders;\r\nshared UserQuery = let Source = #\"babs\",\r\n  #\"Uppercased text\" = Table.TransformColumns(Source, {{\"name\", each Text.Upper(_), type nullable text}}),\r\n  #\"Changed column type\" = Table.TransformColumnTypes(#\"Uppercased text\", {{\"dockcount\", Int64.Type}}),\r\n  #\"Filtered rows\" = Table.SelectRows(#\"Changed column type\", each [dockcount] > 20),\r\n  #\"Grouped rows\" = Table.Group(#\"Filtered rows\", {\"name\"}, {{\"docks\", each List.Sum([dockcount]), type nullable number}}) in #\"Grouped rows\";\r\n",
+			"documentLocale": "en-us"
+		}
+	}
+}
