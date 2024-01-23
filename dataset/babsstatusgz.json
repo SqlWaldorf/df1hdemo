@@ -10,12 +10,11 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "201508_status_data.csv.gz",
-				"folderPath": "clean/babs/data",
+				"fileName": "201508_station_data.csv",
+				"folderPath": "babs/data",
 				"fileSystem": "demofiles"
 			},
 			"columnDelimiter": ",",
-			"compressionCodec": "gzip",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
